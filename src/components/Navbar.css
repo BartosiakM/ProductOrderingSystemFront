@@ -8,12 +8,16 @@
   }
   
   .navbar-brand {
-    display: flex;
     align-items: center;
   }
   
   .navbar-brand img {
     margin-right: 10px;
+  }
+
+  .orderbtn {
+    display: flex;
+    margin-left: 10px;
   }
   
   .btn-outline-success {

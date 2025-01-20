@@ -11,6 +11,12 @@ const Navbar: React.FC = () => {
           <img src={logo} alt="Logo" width="30" height="30" />
           Online Shop
         </Link>
+        <Link to="/edit" className="btn">
+          Edycja produktów
+        </Link>
+        <Link to="/orders" className="btn orderbtn">
+          Zamówienia
+        </Link>
         <Link to="/cart" className="btn btn-outline-success">
           Koszyk
         </Link>

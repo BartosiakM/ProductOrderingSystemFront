@@ -1,13 +1,14 @@
 // src/types.ts
 export interface Product {
-    id: number;
-    name: string;
-    description: string;
-    unitPrice: number;
-    categoryId: number;
-  }
+  id: number;
+  name: string;
+  description: string;
+  descriptionHTML: string | null;
+  unitPrice: number;
+  unitWeight: number;
+  categoryId: number;
+}
 
-  export interface CartItem extends Product {
-    quantity: number;
-  }
-  
+export interface CartItem extends Product {
+  quantity: number;
+}
