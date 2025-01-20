@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Product } from '../types';
+import { generateSeoDescription } from "../utils/api.ts";
 
 const ProductsEdit: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -9,6 +10,7 @@ const ProductsEdit: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [seoLoading, setSeoLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,6 +86,24 @@ const ProductsEdit: React.FC = () => {
     }
   };
 
+  const handleGenerateSeoDescription = async () => {
+    if (editedProduct) {
+      try {
+        setSeoLoading(true);
+        const seoDescription = await generateSeoDescription(editedProduct.id.toString());
+        setEditedProduct({
+          ...editedProduct,
+          description: seoDescription,
+        });
+      } catch (error: unknown) {
+        console.error('Error generating SEO description:', error);
+        setSubmitError('Nie udało się wygenerować opisu SEO. Spróbuj ponownie.');
+      } finally {
+        setSeoLoading(false);
+      }
+    }
+  };
+
   return (
     <div className="container">
       <h1 className="my-4">Edit Products</h1>
@@ -122,6 +142,12 @@ const ProductsEdit: React.FC = () => {
                 value={editedProduct.description}
                 onChange={handleChange}
               />
+            </div>
+            <div className="mb-3">
+              {seoLoading && <p>Generating SEO description...</p>}
+                <button type="button" className="btn btn-secondary mt-2" onClick={handleGenerateSeoDescription} disabled={seoLoading}>
+                Generate SEO Description
+            </button>
             </div>
             <div className="mb-3">
               <label className="form-label">Unit Price:</label>
