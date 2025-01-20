@@ -8,6 +8,7 @@ const ProductsEdit: React.FC = () => {
   const [editedProduct, setEditedProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,24 +38,49 @@ const ProductsEdit: React.FC = () => {
     setEditedProduct(product);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     if (editedProduct) {
+      const { name, value } = e.target;
+
       setEditedProduct({
         ...editedProduct,
-        [e.target.name]: e.target.value
+        [name]: ['unitPrice', 'unitWeight', 'categoryId'].includes(name)
+          ? parseFloat(value) // Konwersja na liczbę dla odpowiednich pól
+          : value,
       });
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (editedProduct) {
-      axios.put(`http://localhost:3000/products/${editedProduct.id}`, editedProduct)
-        .then(response => {
-          setProducts(products.map(p => p.id === editedProduct.id ? editedProduct : p));
-          setEditedProduct(null);
-        })
-        .catch(error => console.error('Error updating product:', error));
+      try {
+        console.log('Sending data to server:', editedProduct);
+        const response = await axios.put(
+          `http://localhost:3000/products/${editedProduct.id}`,
+          editedProduct
+        );
+        console.log('Response from server:', response.data);
+
+        // Aktualizacja listy produktów
+        setProducts(products.map(p => (p.id === editedProduct.id ? response.data : p)));
+        setEditedProduct(null);
+        setSubmitError(null);
+      } catch (error: any) {
+        console.error('Error updating product:', error);
+
+        // Obsługa błędów z serwera
+        if (error.response && error.response.data) {
+          const serverErrorMessage =
+            error.response.data.error || // Pobierz `error` z odpowiedzi
+            error.response.data.message || // Jeśli dostępne, pobierz `message`
+            'Nieznany błąd serwera'; // Domyślny komunikat błędu
+
+          setSubmitError(serverErrorMessage); // Ustaw komunikat błędu z serwera
+        } else {
+          setSubmitError('Nie udało się zaktualizować produktu. Spróbuj ponownie.');
+        }
+      }
     }
   };
 
@@ -67,7 +93,9 @@ const ProductsEdit: React.FC = () => {
         {products.map(product => (
           <li key={product.id} className="list-group-item d-flex justify-content-between align-items-center">
             {product.name} - {product.unitPrice} - {product.unitWeight}
-            <button className="btn btn-primary" onClick={() => handleEdit(product)}>Edit</button>
+            <button className="btn btn-primary" onClick={() => handleEdit(product)}>
+              Edit
+            </button>
           </li>
         ))}
       </ul>
@@ -77,26 +105,65 @@ const ProductsEdit: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label">Name:</label>
-              <input type="text" className="form-control" name="name" value={editedProduct.name} onChange={handleChange} />
+              <input
+                type="text"
+                className="form-control"
+                name="name"
+                value={editedProduct.name}
+                onChange={handleChange}
+              />
             </div>
             <div className="mb-3">
               <label className="form-label">Description:</label>
-              <input type="text" className="form-control" name="description" value={editedProduct.description} onChange={handleChange} />
+              <input
+                type="text"
+                className="form-control"
+                name="description"
+                value={editedProduct.description}
+                onChange={handleChange}
+              />
             </div>
             <div className="mb-3">
               <label className="form-label">Unit Price:</label>
-              <input type="number" className="form-control" name="unitPrice" value={editedProduct.unitPrice} onChange={handleChange} />
+              <input
+                type="number"
+                className="form-control"
+                name="unitPrice"
+                value={editedProduct.unitPrice}
+                onChange={handleChange}
+              />
             </div>
             <div className="mb-3">
               <label className="form-label">Unit Weight:</label>
-              <input type="number" className="form-control" name="unitWeight" value={editedProduct.unitWeight} onChange={handleChange} />
+              <input
+                type="number"
+                className="form-control"
+                name="unitWeight"
+                value={editedProduct.unitWeight}
+                onChange={handleChange}
+              />
             </div>
             <div className="mb-3">
-              <label className="form-label">Category ID:</label>
-              <input type="number" className="form-control" name="categoryId" value={editedProduct.categoryId} onChange={handleChange} />
+              <label className="form-label">Category:</label>
+              <select
+                className="form-select"
+                name="categoryId"
+                value={editedProduct.categoryId}
+                onChange={handleChange}
+              >
+                <option value="" disabled>
+                  Wybierz kategorię
+                </option>
+                {categories.map(category => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
             </div>
             <button type="submit" className="btn btn-success">Submit</button>
           </form>
+          {submitError && <div className="alert alert-danger mt-3">{submitError}</div>}
         </div>
       )}
     </div>
