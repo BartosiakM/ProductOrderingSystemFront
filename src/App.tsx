@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import './App.css';
 import EditPage from './pages/EditPage';
 import OrdersPage from './pages/OrdersPage';
+import DbInitPage from "./pages/DbInitPage.tsx";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/edit" element={<EditPage />} />
         <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/init" element={<DbInitPage />} />
       </Routes>
     </Router>
   );

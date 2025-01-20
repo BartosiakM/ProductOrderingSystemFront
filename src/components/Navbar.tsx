@@ -17,6 +17,9 @@ const Navbar: React.FC = () => {
         <Link to="/orders" className="btn orderbtn">
           Zamówienia
         </Link>
+        <Link to="/init" className="btn orderbtn">
+          Inicjalizacja bazy danych
+        </Link>
         <Link to="/cart" className="btn btn-outline-success">
           Koszyk
         </Link>

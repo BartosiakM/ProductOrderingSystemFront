@@ -8,6 +8,7 @@ import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
 import EditPage from './pages/EditPage';
 import OrdersPage from './pages/OrdersPage';
+import DbInitPage from "./pages/DbInitPage.tsx";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/cart" element={<CartPage />} />
         <Route path='/edit' element={<EditPage />} />
         <Route path='/orders' element={<OrdersPage />} />
+        <Route path='/init' element={<DbInitPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
