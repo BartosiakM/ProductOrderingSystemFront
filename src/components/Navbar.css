@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #5a5a5a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Upewnij się, że navbar jest na wierzchu */
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-brand img {
+    margin-right: 10px;
+  }
+  
+  .btn-outline-success {
+    margin-left: auto;
+  }
+  
+  /* Dodaj margines górny do głównej zawartości strony */
+  .main-content {
+    margin-top: 70px; /* Dostosuj wartość w zależności od wysokości navbaru */
+  }
