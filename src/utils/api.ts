@@ -36,4 +36,9 @@ export const fetchCategories = async () => {
   return response.data;
 };
 
+export const generateSeoDescription = async (productId: string) => {
+    const response = await api.get(`/products/${productId}/seo-description`);
+    return response.data.seoDescription;
+};
+
 export default api;
