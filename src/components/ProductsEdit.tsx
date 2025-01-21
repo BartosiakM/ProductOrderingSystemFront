@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { Product } from '../types';
 import { generateSeoDescription } from "../utils/api.ts";
 
@@ -18,11 +18,11 @@ const ProductsEdit: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        const productResponse = await axios.get('http://localhost:3000/products');
+        const productResponse = await api.get('http://localhost:3000/products');
         console.log('Product response:', productResponse.data);
         setProducts(productResponse.data);
 
-        const categoryResponse = await axios.get('http://localhost:3000/categories');
+        const categoryResponse = await api.get('http://localhost:3000/categories');
         console.log('Category response:', categoryResponse.data);
         setCategories(categoryResponse.data);
       } catch (err: any) {
@@ -58,7 +58,7 @@ const ProductsEdit: React.FC = () => {
     if (editedProduct) {
       try {
         console.log('Sending data to server:', editedProduct);
-        const response = await axios.put(
+        const response = await api.put(
           `http://localhost:3000/products/${editedProduct.id}`,
           editedProduct
         );

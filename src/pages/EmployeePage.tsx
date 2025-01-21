@@ -31,13 +31,6 @@ const EmployeePage: React.FC = () => {
               </div>
             </Link>
           </div>
-          <div className="col-md-6 col-lg-3">
-            <Link to="/reviews" className="employee-tile">
-              <div className="tile-content text-center">
-                <h2>Opinie</h2>
-              </div>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
