@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import api from '../utils/api';
 
 interface OrderItem {
   id: number;
@@ -42,10 +43,10 @@ const OrdersPage: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        const ordersResponse = await axios.get('http://localhost:3000/orders');
+        const ordersResponse = await api.get('http://localhost:3000/orders');
         setOrders(ordersResponse.data);
 
-        const statusesResponse = await axios.get('http://localhost:3000/status');
+        const statusesResponse = await api.get('http://localhost:3000/status');
         setStatuses(statusesResponse.data);
       } catch (err: any) {
         setError('Nie udało się pobrać danych z serwera');
@@ -73,7 +74,7 @@ const OrdersPage: React.FC = () => {
           ? order.approvalDate || new Date().toISOString() // Ustaw datę tylko, jeśli status to "approved" i nie istnieje jeszcze
           : order.approvalDate; // Zatrzymaj istniejącą datę dla innych statusów
 
-      const response = await axios.patch(`http://localhost:3000/orders/${orderId}`, {
+      const response = await api.patch(`http://localhost:3000/orders/${orderId}`, {
         statusId: newStatusId,
         approvalDate,
       });

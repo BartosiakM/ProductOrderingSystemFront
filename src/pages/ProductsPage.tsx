@@ -61,17 +61,19 @@ const ProductsPage: React.FC = () => {
   const handleBuy = (product: Product) => {
     const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     const existingItemIndex = cartItems.findIndex((item: CartItem) => item.id === product.id);
-
+  
     if (existingItemIndex !== -1) {
       cartItems[existingItemIndex].quantity += 1;
     } else {
       cartItems.push({ ...product, quantity: 1 });
     }
-
+  
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
     console.log('Dodano do koszyka:', product);
+  
+    // Aktualizacja liczby produktów w koszyku
+    window.dispatchEvent(new Event('storage')); // Jeśli używasz event listenera
   };
-
   if (loading) return <div>Ładowanie danych...</div>;
   if (error) return <div className="text-danger">{error}</div>;
 

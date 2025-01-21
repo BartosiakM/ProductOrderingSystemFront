@@ -1,0 +1,38 @@
+.employee-tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #007bff; /* Kolor przycisku */
+    color: white;
+    height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .employee-tile:hover {
+    transform: translateY(-5px); /* Delikatne podniesienie przy najechaniu */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
+  
+  .employee-tile .tile-content h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .tile-content {
+    padding: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .employee-tile {
+      height: 120px; /* Mniejsze kafelki na mniejszych ekranach */
+    }
+  
+    .employee-tile .tile-content h2 {
+      font-size: 1rem;
+    }
+  }
+  

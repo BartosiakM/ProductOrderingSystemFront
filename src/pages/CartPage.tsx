@@ -43,14 +43,21 @@ const CartPage: React.FC = () => {
       newCartItems[index].quantity = quantity;
       setCartItems(newCartItems);
       saveCartItems(newCartItems);
+  
+      // Emituj zdarzenie `storage` po zmianie ilości
+      window.dispatchEvent(new Event('storage'));
     }
   };
-
+  
   const handleRemoveItem = (index: number) => {
     const newCartItems = cartItems.filter((_, i) => i !== index);
     setCartItems(newCartItems);
     saveCartItems(newCartItems);
+  
+    // Emituj zdarzenie `storage` po usunięciu produktu
+    window.dispatchEvent(new Event('storage'));
   };
+  
 
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.unitPrice * item.quantity,
