@@ -1,0 +1,16 @@
+.list-group-item {
+  background-color: #303030;
+  color: #b3b3b3;
+  border: 1px solid #525252;
+}
+
+#edit-name, #edit-price, #edit-description, #edit-category, #edit-weight {
+  background-color: #555555;
+  color: #b3b3b3;
+  border: 1px solid #525252;
+  margin-bottom: 30px;
+}
+
+#seo {
+    margin-top: 5px;
+}

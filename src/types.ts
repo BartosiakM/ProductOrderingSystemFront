@@ -7,6 +7,7 @@ export interface Product {
   unitPrice: number;
   unitWeight: number;
   categoryId: number;
+  imageUrl: string | null;
 }
 
 export interface CartItem extends Product {

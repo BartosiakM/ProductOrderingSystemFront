@@ -1,0 +1,9 @@
+#reviewText, #rating {
+    margin-bottom: 40px;
+    background-color: #2e2e2e;
+    /* Kolor tła przy focus */
+    border: 1px solid #555; /* Inny kolor obramowania przy focus */
+    outline: none; /* Usunięcie domyślnego obramowania focus */
+    color: #888888;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }

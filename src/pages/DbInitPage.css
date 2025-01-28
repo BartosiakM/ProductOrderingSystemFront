@@ -1,0 +1,29 @@
+#file {
+    background-color: #424242;
+    /* Kolor tła przy focus */
+    border: 1px solid #555; /* Inny kolor obramowania przy focus */
+    outline: none; /* Usunięcie domyślnego obramowania focus */
+    color: #888888;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+#file::file-selector-button {
+    background-color: #9b9b9b;
+    /* Kolor tła przy focus */
+    border: 1px solid #555; /* Inny kolor obramowania przy focus */
+    outline: none; /* Usunięcie domyślnego obramowania focus */
+    color: #161616;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.db-init-page {
+    width: 100%; /* Kontener na całą szerokość */
+    max-width: 1200px; /* Ograniczenie maksymalnej szerokości */
+    margin: 0 auto; /* Wyśrodkowanie kontenera */
+    padding: 0 20px; /* Odstępy od boków */
+  }
+
+.main-content {
+     margin-top: 130px;
+}

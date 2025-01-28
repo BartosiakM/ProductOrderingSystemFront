@@ -30,7 +30,8 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="login-page">
+    <div className="container mt-5 ">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <div className="card shadow">
@@ -74,6 +75,7 @@ const LoginPage: React.FC = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

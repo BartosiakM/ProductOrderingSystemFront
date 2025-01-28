@@ -3,6 +3,7 @@ import { Product } from '../types';
 import { fetchProducts } from "../utils/api";
 import api from '../utils/api';
 import Navbar from "../components/Navbar";
+import './DbInitPage.css';
 
 const DbInitPage: React.FC = () => {
     const [fileContent, setFileContent] = useState<string | null>(null);
@@ -92,12 +93,13 @@ const DbInitPage: React.FC = () => {
     };
 
     return (
-        <div className="container-fluid main-content">
+        <div className="container-fluid main-content db-init-page">
             <Navbar />
             <h1>Initialize Database</h1>
             <div className="mb-3">
                 <input
                     type="file"
+                    id="file"
                     className="form-control"
                     accept=".txt,.json"
                     onChange={handleFileUpload}

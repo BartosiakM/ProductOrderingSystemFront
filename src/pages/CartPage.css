@@ -1,0 +1,105 @@
+
+#email, #phone, #username{
+    background-color: #303030; /* Kolor tła */
+    border: 1px solid #303030; /* Obramowanie */
+    color: #888888; /* Kolor tekstu */
+    padding: 10px; /* Dodanie odstępów wewnętrznych */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#email:focus, #phone:focus, #username:focus {
+    background-color: #303030; /* Kolor tła przy focus */
+    border: 1px solid #555; /* Inny kolor obramowania przy focus */
+    outline: none; /* Usunięcie domyślnego obramowania focus */
+    color: #888888;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .has-value {
+    background-color: #303030; /* Kolor tła przy focus */
+    border: 1px solid #555; /* Inny kolor obramowania przy focus */
+    outline: none; /* Usunięcie domyślnego obramowania focus */
+    color: #888888;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+
+
+
+.main-content {
+    margin-top: 130px;
+}
+
+body  {
+    
+    background-color:  rgb(24, 24, 24);
+    color: rgb(165, 165, 165);
+}
+
+#order {
+    margin-top: 30px;
+}
+
+h1 {
+    text-align: center; 
+    margin-bottom: 30px;
+}
+
+#empty {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+.container-fluid {
+    width: 100%; /* Kontener na całą szerokość */
+    max-width: 100%; /* Usuń maksymalną szerokość */
+    padding: 0 10px; /* Opcjonalne odstępy od krawędzi */
+  }
+  
+  .table-dark {
+    width: 100%; /* Tabela na całą szerokość */
+    border-collapse: collapse; /* Usuń odstępy między komórkami */
+    color: rgb(194, 194, 194);
+  }
+  
+  .table-dark thead th,
+  .table-dark tbody td {
+    text-align: left; /* Wyrównanie tekstu do lewej */
+    padding: 10px; /* Odstępy wewnętrzne */
+  }
+  
+  .table-dark thead th {
+    background-color: #444444; /* Kolor nagłówka */
+    color: #9b9b9b; /* Kolor tekstu nagłówka */
+  }
+  
+  .table-dark tbody tr {
+    background-color: #333333; /* Kolor wierszy tabeli */
+  }
+  
+  
+  
+  .table-dark tbody td {
+    border-top: 1px solid #444444; /* Ramka między komórkami */
+  }
+  
+
+
+  .btn-danger img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .btn-danger:hover img {
+    opacity: 0.8; /* Efekt przy najechaniu */
+  }
+
+  #quantity {
+    background-color: #303030; /* Kolor tła */
+    border: 1px solid #303030; /* Obramowanie */
+    color: #888888; /* Kolor tekstu */
+    padding: 10px; /* Dodanie odstępów wewnętrznych */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+  }
+  

@@ -1,0 +1,18 @@
+body  {
+  background-color:  rgb(24, 24, 24);
+}
+
+.products-page{
+  background-color: rgb(24, 24, 24); /* Tło strony */
+  color: rgb(165, 165, 165); /* Kolor tekstu */
+  text-align: center; /* Wyrównanie tekstu */
+  min-height: 100vh; /* Wysokość strony */
+  margin-top: 130px;
+}
+
+/* Nagłówki wewnątrz ProductsPage */
+.products-page h1 {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  color: rgb(165, 165, 165); /* Kolor nagłówka */
+}

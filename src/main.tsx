@@ -38,7 +38,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route
           path="/reviews"
           element={
-            <PrivateRoute roles={['KLIENT']}>
+            <PrivateRoute roles={['KLIENT', 'PRACOWNIK']}>
               <ReviewsPage />
             </PrivateRoute>
           }

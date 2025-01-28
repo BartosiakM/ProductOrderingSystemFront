@@ -4,6 +4,7 @@ import FilterBar from '../components/FilterBar';
 import Navbar from '../components/Navbar'; // Import Navbar
 import { Product, CartItem } from '../types';
 import api from '../utils/api';
+import './ProductsPage.css';
 
 
 interface Category {
@@ -78,8 +79,8 @@ const ProductsPage: React.FC = () => {
   if (error) return <div className="text-danger">{error}</div>;
 
   return (
-    <div className="container-fluid main-content">
-      <Navbar /> {/* Dodaj Navbar */}
+    <div className="container-fluid  products-page">
+      <Navbar />
       <div className="container mt-4">
         <h1>Lista produktów</h1>
         <FilterBar

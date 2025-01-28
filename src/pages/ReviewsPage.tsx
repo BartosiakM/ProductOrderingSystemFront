@@ -47,7 +47,7 @@ const ReviewsPage: React.FC = () => {
         {loading && <p>Ładowanie opinii...</p>}
         {error && <p className="text-danger">{error}</p>}
 
-        <table className="table">
+        <table className="table-dark">
           <thead>
             <tr>
               <th>ID</th>

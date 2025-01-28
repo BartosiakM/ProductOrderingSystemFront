@@ -1,4 +1,5 @@
 import React from 'react';
+import "./FilterBar.css";
 
 interface Category {
   id: number;
@@ -25,6 +26,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
       <div className="col-md-6">
         <input
           type="text"
+          id="filtrowanie-nazwa"
           className="form-control"
           placeholder="Szukaj po nazwie..."
           value={search}
@@ -34,6 +36,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
       <div className="col-md-6">
         <select
           className="form-select"
+          id="filtrowanie-kategoria"
           value={category}
           onChange={(e) => onCategoryChange(e.target.value)} // Teraz oczekuje string
         >

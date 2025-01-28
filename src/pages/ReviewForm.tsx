@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import api from '../utils/api';
+import './ReviewForm.css';
 
 interface OrderItem {
   id: number;
@@ -121,7 +122,7 @@ const ReviewPage: React.FC = () => {
         {loading && <p>Loading...</p>}
         {error && <p className="text-danger">{error}</p>}
 
-        <table className="table">
+        <table className="table-dark">
           <thead>
             <tr>
               <th>ID</th>
@@ -183,7 +184,7 @@ const ReviewPage: React.FC = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="reviewText" className="form-label">Treść opinii:</label>
+                <label htmlFor="reviewText"  className="form-label">Treść opinii:</label>
                 <textarea
                   id="reviewText"
                   className="form-control"

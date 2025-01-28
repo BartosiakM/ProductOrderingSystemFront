@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../utils/api';
 import { Product } from '../types';
 import { generateSeoDescription } from "../utils/api.ts";
+import './ProductEdit.css';
 
 const ProductsEdit: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -127,6 +128,7 @@ const ProductsEdit: React.FC = () => {
               <label className="form-label">Name:</label>
               <input
                 type="text"
+                id = "edit-name"
                 className="form-control"
                 name="name"
                 value={editedProduct.name}
@@ -137,6 +139,7 @@ const ProductsEdit: React.FC = () => {
               <label className="form-label">Description:</label>
               <input
                 type="text"
+                id = "edit-description"
                 className="form-control"
                 name="description"
                 value={editedProduct.description}
@@ -145,7 +148,7 @@ const ProductsEdit: React.FC = () => {
             </div>
             <div className="mb-3">
               {seoLoading && <p>Generating SEO description...</p>}
-                <button type="button" className="btn btn-secondary mt-2" onClick={handleGenerateSeoDescription} disabled={seoLoading}>
+                <button type="button" className="btn btn-secondary " id = "seo" onClick={handleGenerateSeoDescription} disabled={seoLoading}>
                 Generate SEO Description
             </button>
             </div>
@@ -153,6 +156,7 @@ const ProductsEdit: React.FC = () => {
               <label className="form-label">Unit Price:</label>
               <input
                 type="number"
+                id = "edit-price"
                 className="form-control"
                 name="unitPrice"
                 value={editedProduct.unitPrice}
@@ -163,6 +167,7 @@ const ProductsEdit: React.FC = () => {
               <label className="form-label">Unit Weight:</label>
               <input
                 type="number"
+                id = "edit-weight"
                 className="form-control"
                 name="unitWeight"
                 value={editedProduct.unitWeight}
@@ -173,6 +178,7 @@ const ProductsEdit: React.FC = () => {
               <label className="form-label">Category:</label>
               <select
                 className="form-select"
+                id = "edit-category"
                 name="categoryId"
                 value={editedProduct.categoryId}
                 onChange={handleChange}

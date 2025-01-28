@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import api from '../utils/api';
+import './OrderPage.css';
 
 interface OrderItem {
   id: number;
@@ -131,7 +132,7 @@ const OrdersPage: React.FC = () => {
             ))}
           </select>
         </div>
-        <table className="table">
+        <table className="table-dark">
           <thead>
             <tr>
               <th>ID</th>
@@ -151,6 +152,7 @@ const OrdersPage: React.FC = () => {
                 <td>
                   <select
                     className="form-select"
+                    id ="status"
                     value={order.statusId}
                     onChange={(e) =>
                       handleOrderStatusChange(order.id, parseInt(e.target.value, 10))

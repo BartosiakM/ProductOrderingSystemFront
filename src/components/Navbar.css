@@ -1,5 +1,6 @@
 .navbar {
-  background-color: #343a40;
+  background-color: #2e2e2e;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 0;
   left: 0;
@@ -7,10 +8,58 @@
   z-index: 1000;
 }
 
+.navbar-collapse {
+  display: flex;
+  flex-direction: column; /* Ustawienie układu kolumnowego w widoku mobilnym */
+  align-items: flex-start; /* Wyrównanie elementów do początku */
+  padding: 10px;
+}
+
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Dla widoku mobilnego */
+}
+
+.nav-item {
+  width: 100%; /* Elementy menu na pełną szerokość */
+}
+
+.nav-link {
+  color: #d1d1d1;
+  transition: color 0.2s ease-in-out;
+}
+
+.main-content {
+  margin-top: 300px;
+}
+
+@media (max-width: 992px) {
+  .cart-preview {
+    display: none !important; /* Ukryj podgląd koszyka */
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    flex-direction: row; /* Dla desktopu: elementy w rzędzie */
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-nav {
+    flex-direction: row; /* Układ w rzędzie */
+  }
+
+  .nav-item {
+    width: auto; /* Dostosowanie szerokości dla desktopu */
+  }
+}
+
 .navbar-brand {
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #fff;
+  color: #000000;
 }
 
 .navbar-brand img {
@@ -18,13 +67,10 @@
 }
 
 .nav-link {
-  color: #fff;
+  color: #d1d1d1;
   transition: color 0.2s ease-in-out;
 }
 
-.nav-link:hover {
-  color: #ffc107;
-}
 
 .btn-outline-success {
   color: #28a745;
@@ -36,10 +82,54 @@
   color: #fff;
 }
 
-.me-auto {
+/* .me-auto {
   margin-left: auto;
-}
+} */
 
 .main-content {
-  margin-top: 70px;
+  margin-top: 300px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.bounce {
+  animation: bounce 0.4s ease-in-out;
+}
+
+.cart-preview {
+  background-color: #303030;
+  border: 1px solid #888;;
+  color: #888;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+.cart-preview ul {
+  padding: 0;
+  list-style: none;
+}
+
+.cart-preview li {
+  display: flex;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
+.dropdown-menu  {
+  background-color: #303030;
+  border: 1px solid #888;;
+  color: #b3b3b3;
+}
+
+#reviw, #logout {
+  color: #b3b3b3;
 }

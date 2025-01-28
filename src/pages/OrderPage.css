@@ -1,0 +1,27 @@
+#statusFilter {
+    background-color: #424242;
+    /* Kolor tła przy focus */
+    border: 1px solid #555; /* Inny kolor obramowania przy focus */
+    outline: none; /* Usunięcie domyślnego obramowania focus */
+    color: #888888;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+#status {
+    background-color: #424242;
+    /* Kolor tła przy focus */
+    border: 1px solid #555; /* Inny kolor obramowania przy focus */
+    outline: none; /* Usunięcie domyślnego obramowania focus */
+    color: #888888;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#status:hover {
+    background-color: #7a7a7a;
+    /* Kolor tła przy focus */
+    border: 1px solid #555; /* Inny kolor obramowania przy focus */
+    outline: none; /* Usunięcie domyślnego obramowania focus */
+    color: #2b2b2b;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

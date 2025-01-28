@@ -45,7 +45,7 @@ const App: React.FC = () => {
         <Route
           path="/reviews"
           element={
-            <PrivateRoute roles={['KLIENT']}>
+            <PrivateRoute roles={['KLIENT', 'PRACOWNIK']}>
               <ReviewsPage />
             </PrivateRoute>
           }

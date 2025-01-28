@@ -1,15 +1,26 @@
 .employee-tile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background-color: #7e7e7e; /* Kolor przycisku */
-    color: white;
-    height: 150px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #7e7e7e;
+  color: white;
+  height: 150px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 150px; /* Minimalna wysokość */
+}
+
+
+
+.tile-content {
+  display: flex;
+  align-items: center; /* Wyrównanie tekstu pionowo */
+  justify-content: center; /* Wyrównanie tekstu poziomo */
+  padding: 10px;
+  text-align: center; /* Wyrównanie tekstu horyzontalnie */
+}
   
   .employee-tile:hover {
     transform: translateY(-5px); /* Delikatne podniesienie przy najechaniu */
@@ -22,9 +33,7 @@
     font-weight: bold;
   }
   
-  .tile-content {
-    padding: 10px;
-  }
+ 
   
   @media (max-width: 768px) {
     .employee-tile {

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Product } from '../types';
 import Navbar from '../components/Navbar';
 import api from '../utils/api'; // Import konfiguracji axios
+import './CartPage.css';
+import TrashIcon from '../assets/trash.svg';
 
 interface CartItem extends Product {
   quantity: number;
@@ -131,7 +133,7 @@ const CartPage: React.FC = () => {
         <h1>Koszyk</h1>
         {cartItems.length > 0 ? (
           <>
-            <table className="table">
+            <table className="table-dark">
               <thead>
                 <tr>
                   <th>Nazwa</th>
@@ -147,6 +149,7 @@ const CartPage: React.FC = () => {
                     <td>
                       <input
                         type="number"
+                        id="quantity"
                         value={item.quantity}
                         onChange={(e) =>
                           handleQuantityChange(index, parseInt(e.target.value, 10))
@@ -156,12 +159,12 @@ const CartPage: React.FC = () => {
                     </td>
                     <td>{(item.unitPrice * item.quantity).toFixed(2)} zł</td>
                     <td>
-                      <button
-                        className="btn btn-danger"
-                        onClick={() => handleRemoveItem(index)}
-                      >
-                        Usuń
-                      </button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleRemoveItem(index)}
+                    >
+                      <img src={TrashIcon} alt="Usuń" style={{ width: '20px', height: '20px' }} />
+                    </button>
                     </td>
                   </tr>
                 ))}
@@ -213,13 +216,13 @@ const CartPage: React.FC = () => {
                 />
                 {errors.phone && <div className="invalid-feedback">{errors.phone}</div>}
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" id = "order" className="btn btn-primary">
                 Zatwierdź zamówienie
               </button>
             </form>
           </>
         ) : (
-          <h2>Koszyk jest pusty</h2>
+          <h2 id ='empty'>Koszyk jest pusty</h2>
         )}
       </div>
     </div>
